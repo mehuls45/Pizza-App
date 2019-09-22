@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-2">
+        <div class="sticky-top">
+            <div class="list-group">
+
+                <button 
+                (click)="setItem('')" [class.active] = "filterTerm == null || filterTerm == '' "
+                class="list-group-item list-group-item-action">All Pizzas</button>
+
+                <button (click) = setItem(p.name) [class.active] = "p.name == filterTerm"
+                *ngFor="let p of pizza" 
+                class="list-group-item list-group-item-action">{{ p.name }}</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-10">
+        <div class="container">
+            <p>
+                <input [(ngModel)]="filterTerm" class="form-control search-box" type="text" placeholder="Search...">
+            </p>
+
+            <div class="row">
+                <div class="col-md-4" *ngFor="let p of pizza | filter: filterTerm">
+                    <app-pizza-card
+
+                    [id] = p.id
+                    [name]="p.name"
+                    [img] = p.img
+                    [price]="p.price"
+                    [toppings]="p.toppings"
+                    ></app-pizza-card>
+
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</div>

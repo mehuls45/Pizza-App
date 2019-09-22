@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      
+        <form [formGroup]="pizzaForm" >
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Pizza Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  formControlName="name" class="form-control" placeholder="Pizza name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Image Name</label>
+                <div class="col-sm-10">
+                    <input type="text"  formControlName="img" class="form-control" placeholder="Image name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price</label>
+                <div class="col-sm-10">
+                    <input type="number"  formControlName="price" class="form-control" placeholder="Price">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Toppings</label>
+                <div class="col-sm-10">
+                    <input type="text"  formControlName="toppings" class="form-control" placeholder="Toppings">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button (click)="submit()" [disabled]="pizzaForm.invalid" class="btn btn-success">Add Pizza</button>
+                    <button (click)="clear()" class="btn btn-danger">Clear</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-2"> </div>
+</div>
